@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vinil Vibe – Loja de Discos</title>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <style>
+    :root{
+      --bg:#0f172a;
+      --panel:#111827;
+      --muted:#1f2937;
+      --text:#e5e7eb;
+      --accent:#22d3ee;
+      --accent-2:#a78bfa;
+      --shadow:0 10px 25px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:linear-gradient(160deg,#0b1026 0%, #111827 60%, #0b1026 100%);
+      color:var(--text); font-family: Inter, sans-serif;
+    }
+    .container{max-width:1200px; margin:0 auto; padding:24px}
+    header{position:sticky; top:0; background:rgba(15,23,42,.8);}
+    .brand{display:flex; align-items:center; gap:14px; padding:16px 24px; text-decoration:none; color:var(--text);}
+    .logo{width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:grid; place-items:center; font-weight:900; color:#0b1026;}
+    h1{margin:0; font-size: clamp(22px, 4vw, 34px);}
+    nav{display:flex; gap:16px;}
+    nav a{color:var(--text); text-decoration:none; font-weight:600;}
+    .toolbar{display:flex; gap:12px; align-items:center; margin:16px 0 24px; flex-wrap:wrap}
+    .search, .select{background:var(--muted); border:none; color:var(--text); padding:12px 14px; border-radius:14px;}
+    .grid{display:grid; gap:18px}
+    @media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media(min-width:1200px){.grid{grid-template-columns:repeat(4,1fr)}}
+    .card{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column}
+    .cover{aspect-ratio:1/1; width:100%; object-fit:cover;}
+    .content{padding:14px}
+    .title{font-size:16px; font-weight:800; margin:0 0 6px}
+    .artist{opacity:.8; font-size:14px; margin:0 0 10px}
+    .price{font-weight:900}
+    footer{padding:32px; text-align:center; opacity:.7}
+
+    /* Carrinho */
+    .cart-toggle{position:fixed; right:18px; bottom:18px; z-index:60}
+    .cart-drawer{position:fixed; inset:0 0 0 auto; width:min(420px, 92vw); background:#0b1026; border-left:1px solid rgba(255,255,255,.1); transform:translateX(100%); transition: transform .28s ease; z-index:70; display:flex; flex-direction:column}
+    .cart-drawer.open{transform:translateX(0)}
+    .cart-header{display:flex; justify-content:space-between; align-items:center; padding:16px 18px; border-bottom:1px dashed rgba(255,255,255,.12)}
+    .cart-list{flex:1; overflow:auto; padding:14px}
+    .cart-item{display:grid; grid-template-columns:64px 1fr auto; gap:12px; align-items:center; padding:10px; border-radius:12px; background:rgba(255,255,255,.04); margin-bottom:10px}
+    .cart-item img{width:64px; height:64px; object-fit:cover; border-radius:8px}
+    .cart-footer{padding:16px 18px; border-top:1px dashed rgba(255,255,255,.12)}
+    .badge{font-size:12px; background:rgba(255,255,255,.1); padding:4px 8px; border-radius:999px; margin-left:6px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between;">
+      <a href="#" class="brand"><span class="logo">VV</span><h1>Vinil Vibe — Loja de Discos</h1></a>
+      <nav>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#mais-vendidos">Mais Vendidos</a>
+        <button class="cart-toggle" id="openCart">🛒 Carrinho <span class="badge" id="cartCount">0</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="catalogo">
+      <div class="toolbar">
+        <input id="search" class="search" type="search" placeholder="Buscar…" />
+        <select id="sort" class="select">
+          <option value="relevance">Ordenar: Relevância</option>
+          <option value="price-asc">Preço: menor → maior</option>
+          <option value="price-desc">Preço: maior → menor</option>
+          <option value="artist">Artista (A–Z)</option>
+        </select>
+      </div>
+      <section class="grid" id="grid"></section>
+    </section>
+
+    <h2 id="mais-vendidos">Mais Vendidos</h2>
+    <section class="grid" id="gridMaisVendidos"></section>
+  </main>
+
+  <aside class="cart-drawer" id="cart">
+    <div class="cart-header">
+      <strong>Seu carrinho</strong>
+      <button id="closeCart">Fechar ✕</button>
+    </div>
+    <div class="cart-list" id="cartList"></div>
+    <div class="cart-footer">
+      <div><span>Itens:</span> <strong id="cartItems">0</strong></div>
+      <div><span>Subtotal:</span> <strong id="cartSubtotal">R$ 0,00</strong></div>
+      <button id="checkout">Finalizar compra</button>
+    </div>
+  </aside>
+
+  <footer>© 2025 Vinil Vibe</footer>
+
+  <script>
+    const catalog = [
+      { id:1, artist:"The Beatles", album:"Abbey Road (Remastered)", price:199.90, cover:"https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4" },
+      { id:2, artist:"Pink Floyd", album:"The Dark Side of the Moon", price:219.90, cover:"https://images.unsplash.com/photo-1516280440614-37939bbacd81" },
+      { id:3, artist:"Queen", album:"A Night at the Opera", price:189.90, cover:"https://images.unsplash.com/photo-1514862889-5f7c495ef0bf" },
+      { id:4, artist:"Michael Jackson", album:"Thriller", price:209.90, cover:"https://images.unsplash.com/photo-1528291151373-5d79c9f07f11" },
+      { id:5, artist:"Madonna", album:"Like a Prayer", price:169.90, cover:"https://images.unsplash.com/photo-1517701604599-bb29b565090c" },
+      { id:6, artist:"Nirvana", album:"Nevermind", price:199.90, cover:"https://images.unsplash.com/photo-1471478331149-c72f17e33c73" },
+      { id:7, artist:"Bob Marley", album:"Legend", price:179.90, cover:"https://images.unsplash.com/photo-1512428559087-560fa5ceab42" },
+      { id:8, artist:"Led Zeppelin", album:"IV", price:189.90, cover:"https://images.unsplash.com/photo-1463428121484-8d3d86f7a8d2" },
+      { id:9, artist:"Taylor Swift", album:"1989 (Taylor's Version)", price:239.90, cover:"https://images.unsplash.com/photo-1513815973650-1e9d75a2d9b0" },
+      { id:10, artist:"Beyoncé", album:"RENAISSANCE", price:229.90, cover:"https://images.unsplash.com/photo-1520367745676-300a4f4f16d6" },
+      { id:11, artist:"Adele", album:"21", price:199.90, cover:"https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" },
+      { id:12, artist:"Drake", album:"Scorpion", price:189.90, cover:"https://images.unsplash.com/photo-1511376777868-611b54f68947" },
+      { id:13, artist:"Kendrick Lamar", album:"DAMN.", price:209.90, cover:"https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4" },
+      { id:14, artist:"Billie Eilish", album:"Happier Than Ever", price:219.90, cover:"https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" },
+      { id:15, artist:"Ed Sheeran", album:"÷ (Divide)", price:199.90, cover:"https://images.unsplash.com/photo-1520367745676-300a4f4f16d6" }
+    ];
+
+    const grid = document.getElementById('grid');
+    const gridMaisVendidos = document.getElementById('gridMaisVendidos');
+    const search = document.getElementById('search');
+    const sort = document.getElementById('sort');
+
+    const openCartBtn = document.getElementById('openCart');
+    const closeCartBtn = document.getElementById('closeCart');
+    const cartDrawer = document.getElementById('cart');
+    const cartList = document.getElementById('cartList');
+    const cartCount = document.getElementById('cartCount');
+    const cartItems = document.getElementById('cartItems');
+    const cartSubtotal = document.getElementById('cartSubtotal');
+    const checkout = document.getElementById('checkout');
+
+    const BRL = new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'});
+
+    let state = { query:'', sort:'relevance', cart: [] };
+
+    function renderProducts(){
+      let data = catalog.filter(p=> (p.artist+" "+p.album).toLowerCase().includes(state.query.toLowerCase()));
+      if(state.sort==='price-asc') data.sort((a,b)=>a.price-b.price);
+      if(state.sort==='price-desc') data.sort((a,b)=>b.price-a.price);
+      if(state.sort==='artist') data.sort((a,b)=> a.artist.localeCompare(b.artist));
+      grid.innerHTML = '';
+      data.forEach(p=>{
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.innerHTML = `<img class="cover" src="${p.cover}?w=500" alt="Capa do álbum ${p.album} de ${p.artist}"/><div class="content"><h3 class="title">${p.album}</h3><p class="artist">${p.artist}</p><div class='row'><span class="price">${BRL.format(p.price)}</span><button class='btn-add'>Adicionar</button></div></div>`;
+        card.querySelector('.btn-add').addEventListener('click', ()=> addToCart(p.id));
+        grid.appendChild(card);
+      });
+    }
+
+    function renderMaisVendidos(){
+      const mais = catalog.slice(0,5);
+      gridMaisVendidos.innerHTML = '';
+      mais.forEach(p=>{
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.innerHTML = `<img class="cover" src="${p.cover}?w=500" alt="Capa do álbum ${p.album} de ${p.artist}"/><div class="content"><h3 class="title">${p.album}</h3><p class="artist">${p.artist}</p><span class="price">${BRL.format(p.price)}</span></div>`;
+        gridMaisVendidos.appendChild(card);
+      });
+    }
+
+    function addToCart(id){
+      const item = state.cart.find(i=>i.id===id);
+      if(item){ item.qty++; }
+      else{
+        const prod = catalog.find(p=>p.id===id);
+        state.cart.push({id:prod.id, artist:prod.artist, album:prod.album, price:prod.price, cover:prod.cover, qty:1});
+      }
+      renderCart();
+      openCart();
+    }
+
+    function removeFromCart(id){
+      state.cart = state.cart.filter(i=>i.id!==id);
+      renderCart();
+    }
+
+    function changeQty(id, delta){
+      const item = state.cart.find(i=>i.id===id);
+      if(!item) return;
+      item.qty += delta;
+      if(item.qty<=0) removeFromCart(id);
+      renderCart();
+    }
+
+    function renderCart(){
+      cartList.innerHTML = '';
+      if(!state.cart.length){
+        cartList.innerHTML = '<div>Seu carrinho está vazio.</div>';
+      } else {
+        state.cart.forEach(i=>{
+          const el = document.createElement('div');
+          el.className = 'cart-item';
+          el.innerHTML = `<img src="${i.cover}" alt="${i.album}" /><div><div>${i.album}</div><div>${i.artist}</div><div><button>-</button><span>${i.qty}</span><button>+</button><button>Remover</button></div></div><div>${BRL.format(i.price*i.qty)}</div>`;
+          const [minus, plus, removeBtn] = el.querySelectorAll('button');
+          minus.addEventListener('click', ()=>changeQty(i.id,-1));
+          plus.addEventListener('click', ()=>changeQty(i.id,1));
+          removeBtn.addEventListener('click', ()=>removeFromCart(i.id));
+          cartList.appendChild(el);
+        });
+      }
+      const items = state.cart.reduce((acc,i)=>acc+i.qty,0);
+      const subtotal = state.cart.reduce((acc,i)=>acc+i.qty*i.price,0);
+      cartItems.textContent = items;
+      cartSubtotal.textContent = BRL.format(subtotal);
+      cartCount.textContent = items;
+    }
+
+    function openCart(){cartDrawer.classList.add('open');}
+    function closeCart(){cartDrawer.classList.remove('open');}
+
+    openCartBtn.addEventListener('click', openCart);
+    closeCartBtn.addEventListener('click', closeCart);
+    checkout.addEventListener('click', ()=>{ alert('Compra finalizada (demonstração)'); state.cart=[]; renderCart(); closeCart(); });
+
+    search.addEventListener('input', (e)=>{ state.query=e.target.value; renderProducts(); });
+    sort.addEventListener('change', (e)=>{ state.sort=e.target.value; renderProducts(); });
+
+    renderProducts();
+    renderMaisVendidos();
+    renderCart();
+  </script>
+</body>
+</html>
+
+</body>
+</html>

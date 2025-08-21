@@ -1,0 +1,27 @@
+body{
+        background-color: #f0f8ff; /* azul bem claro */
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: darkblue;
+    text-align: center;
+    font-size: 45px;
+}
+h2 {
+    color: crimson;
+    text-align: left;
+    font-size: 30px;
+}
+
+.justificado {
+    color: darkslategray;
+    text-align: justify;
+    font-size: 18px;
+}
+
+.direita {
+    color: seagreen;
+    text-align: right;
+    font-size: 22px;
+}

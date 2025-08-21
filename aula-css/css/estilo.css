@@ -1,0 +1,18 @@
+  body{
+            background-color: beige;
+        }
+        h1{
+            color:rgb(167, 11, 234);
+            font-size: 60px;
+        }
+        h2{
+            color: blueviolet;
+            font-size: 50px;
+        }
+        p{
+            color: #000;
+            text-align: justify;
+            direction: rtl;
+            text-decoration:line-through;
+    
+        }
