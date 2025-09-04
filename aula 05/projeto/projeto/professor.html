@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>professor</title>
+</head>
+<body>
+    <div class= "container">    
+    <h1>🏫 Sistema de Cadastro Escolar</h1>
+    <p>Bem-Vindos ao sistema de cadastro da nossa escola virtual</p>
+    <h3>📋 Menu de Cadastro</h3>
+
+    <a href="/projeto/aluno.html"><button>Cadastro de Aluno</button></a>
+    <a href="/projeto/cursos.html"><button>Cadastro de Curso</button></a>
+    <a href="/projeto/livro.html"><button>Cadastro de Livro</button></a>
+    <a href="/projeto/professor.html"><button>Cadastro de Professor</button></a>
+
+    <div><link rel="stylesheet" href="style.css"></div>
+    <div class="formulario">
+<h4>👨‍🏫 Cadastro de Professor</h4>
+<form action="#" method="post">
+    <label for="nome completo">Nome completo:</label><br>
+    <input type="text" name="nome"><br><br>
+
+    <label for="cpf">CPF:</label><br>
+    <input type="text" name="cpf" id="cpf"><br><br>
+
+    <label for="">Email Institucional:</label><br>
+    <input type="text" name="email"><br><br>
+    
+    <label for="formação">Formação:</label><br>
+    <select name="formação" id="formação">
+        <option value="">Selecione a formação</option>
+        <option value="graduação">Gradução</option>
+        <option value="especialização">Especialização</option>
+        <option value="mestrado">Mestrado</option>
+        <option value="doutorado">Doutorado</option>
+    </select><br><br>
+    
+    <label for="">Disciplicas que leciona:</label><br>
+    <input type="checkbox" name="matemática" id="matemática">Matemática<br>
+    <input type="checkbox" name="portugues" id="portugues">Portugues<br>
+    <input type="checkbox" name="historia" id="historia">História<br>
+    <input type="checkbox" name="geografia" id="geografia">Geografia<br>
+    <input type="checkbox" name="ciência" id="ciências">Ciências<br>
+    <input type="checkbox" name="educação fisica" id="educação fisica">Educação FÍsica<br><br>
+      
+    <label for="">Carga Horária Semanal:</label><br><br>
+    <input type="number" name="horas" id="horas">horas<br>
+
+    <label for="">Experiência (anos):</label><br><br>
+    <input type="number" name="anos" id="anos">anos<br><br>
+
+    <label for="">Disponibilidade:</label><br><br>
+    <input type="radio" name="integral" id="integral"> Período Integral<br>
+    <input type="radio" name="parcial" id="parcial"> Período Parcial<br><br>
+
+    <a href=""><button> Cadastrar Professor</button></a>
+    <a href=""><button>Limpar dados</button></a>
+</form>
+</body>
+</html>

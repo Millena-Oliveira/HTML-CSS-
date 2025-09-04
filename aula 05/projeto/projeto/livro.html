@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>livro</title>
+</head>
+<body>
+   <div class= "container">    
+    <h1>🏫 Sistema de Cadastro Escolar</h1>
+    <p>Bem-Vindos ao sistema de cadastro da nossa escola virtual</p>
+    <h3>📋 Menu de Cadastro</h3>
+
+    <a href="/projeto/aluno.html"><button>Cadastro de Aluno</button></a>
+    <a href="/projeto/cursos.html"><button>Cadastro de Curso</button></a>
+    <a href="/projeto/livro.html"><button>Cadastro de Livro</button></a>
+    <a href="/projeto/professor.html"><button>Cadastro de Professor</button></a>
+
+    <div><link rel="stylesheet" href="style.css"></div>
+    <div class="formulario">
+<h4>📚 Cadastro de Livro (Biblioteca)</h4>
+<form action="#" method="post">
+
+    <label for="titulo">Título do Livro:</label><br>
+    <input type="text" name="titulo"><br><br>  
+
+    <label for="autor">Autor:</label><br>
+    <input type="text" name="nome" id="nome"><br><br>
+
+    <label for="publicação">Ano de Publicação:</label><br>
+    <input type="text" name="publicação" id="publicação"><br><br>
+
+    <label for="editora">Editora:</label><br>
+    <input type="text" name="editora" id="editora"><br><br>
+
+        <label for="">Gênero:</label><br>
+    <select name="genero" id="genero">
+        <option value="selecione">Selecione o gênero</option>
+        <option value="ficção">Ficção</option>
+        <option value="biografia">Biografia</option>
+        <option value="história">História</option>
+        <option value="ciencia">Ciência</option>
+        <option value="didatico">Didático</option>
+        <option value="infantil">Infantil</option>
+    </select><br><br>
+
+    <label for="">Número de Páginas:</label><br>
+    <input type="text" name="pagina" id="pagina"><br><br>
+
+        <label for="">Condição:</label><br>
+    <input type="radio" name="novo" id="novo">Novo<br>
+    <input type="radio" name="usado" id="usado">Usado - Bom Estado<br>
+    <input type="radio" name="regular" id="regular">Usado - Estado regular<br><br>
+
+    <label for="">Localização na Biblioteca:</label><br>
+    <input type="text" name="localização" id="localização"><br><br>
+
+    <label for="">ACaracterísticas:</label><br>
+      <input type="checkbox" name="ilustrado" id="ilustrado">Ilustrado<br>
+      <input type="checkbox" name="capa dura" id="capa dura">Capa Dura<br>
+      <input type="checkbox" name="edição especial" id="edição especial">Edição Especial<br><br>
+
+    <a href=""><button>CadastrarLivro</button></a>
+    <a href=""><button>Limpar Dados</button></a>
+
+</body>
+</html>
