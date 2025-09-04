@@ -1,0 +1,96 @@
+.bloco1{
+    color: blue;
+}
+#primeiro{
+    background-color: yellow;
+}
+.bloco2{
+    color: green;
+}
+#segundo{
+    color: red;
+}
+.bloco3{
+   background-color: blueviolet;
+}
+.bloco4{
+    background-color: cadetblue;
+}
+.bloco5{
+    p,h2,h3{
+        color: pink;
+}
+}
+.bloco6{
+    text-align: center;
+}
+#terceiro{
+    color: darkgreen;
+}
+#quarto{
+    color: gold;
+}
+.paragrafos{
+    p{
+        font-weight: bold;
+    }
+}
+img{
+    border: 2px solid black;
+    width: 200px; 
+    height: 150px;
+}
+img{
+     border: 2px solid black;
+    width: 200px; 
+    height: 150px;
+}
+.seila p{
+    color: tomato;
+}
+.p1{
+    color: aquamarine;
+}
+.p2{
+    color: purple;
+}
+#quinto{
+    font-family: Arial, Helvetica, sans-serif ;
+}
+.bold{
+    font-weight: bold;
+}
+.italic{
+   font-style: italic;
+}
+.underline{
+    text-decoration: underline;
+}
+.div h3{
+    color: cornflowerblue;
+}
+#box1{
+    color: red;
+}
+#box2{
+    color:green;
+}
+#box3{
+    color: blue;
+}
+.destaque{
+    color: darkorange;
+}
+#caixa-colorida{
+    background-color: lightgreen;
+  border: 2px solid black;
+  padding: 10px;
+}
+#sublink{
+    text-decoration: underline;
+}
+.final{
+    h1,p,a{
+        color: darkolivegreen;
+    }
+}
