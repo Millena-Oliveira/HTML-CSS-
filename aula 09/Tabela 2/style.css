@@ -1,0 +1,70 @@
+body{
+    font-family:Arial, sans-serif
+}
+.tabela1{
+    width: 600px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: pink;
+    border: 2px solid black;
+}
+.tabela1{
+    border: solid black;
+    border-collapse: collapse;
+}
+.tabela1 th{
+    border: solid black;
+    border-collapse: collapse;
+}
+.tabela1 td{
+    border: solid black;
+    border-collapse: collapse;
+}
+.tabela2{
+    text-align: center;
+    width: 600px;
+    border: 2px solid black;
+    background-color: aliceblue;
+}
+#pontos{
+    font-weight:  bolder;
+    color: blue;
+}
+.lider{
+    background-color: rgb(104, 145, 217);
+}
+.tabela2 th{
+    border: solid black;
+    border-collapse: collapse;
+}
+.tabela2 td{
+    border: solid black;
+    border-collapse: collapse;
+}
+.tabela2{
+    border: solid black;
+    border-collapse: collapse;
+}
+.tabela3{
+    text-align: center;
+    width: 600px;
+    border: 2px solid black;
+    background-color: snow;
+}
+.tabela3 img{
+    width: 100px;
+    display: block;
+    margin-top: auto;
+}
+.tabela3 th{
+    border: solid black;
+    border-collapse: collapse;
+}
+.tabela3 td{
+    border: solid black;
+    border-collapse: collapse;
+}
+.tabela3{
+    border: solid black;
+    border-collapse: collapse;
+}
