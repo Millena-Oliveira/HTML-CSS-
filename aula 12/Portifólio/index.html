@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu portifólio</title>
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+        }
+
+        header {
+            background: #1e3a8a;
+            color: white;
+            padding: 2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        #home {
+            margin-top: 80px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #1e3a8a;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.4);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #333;
+        }
+
+        #sobre {
+            background: white;
+        }
+
+        .sobre-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .foto-perfil {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+            border: 5px solid #1e3a8a;
+        }
+
+        .foto-perfil img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .projetos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .projeto-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #1e3a8a;
+        }
+
+        .projeto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .projeto-card h3 {
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+
+        .projeto-placeholder {
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .projeto-placeholder p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .skill {
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, background 0.3s, color 0.3s;
+        }
+
+        .skill:hover {
+            transform: scale(1.1);
+            background: #1e3a8a;
+            color: white;
+        }
+
+        #contato {
+            background: white;
+        }
+
+        .contato-info {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contato-info p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .contato-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contato-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: #f8fafc;
+            color: #1e3a8a;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .contato-link:hover {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
+        }
+
+        footer {
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .sobre-content {
+                grid-template-columns: 1fr;
+            }
+
+            .projetos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contato-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Millena Rosa de Oliveira</div>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="hero-content">
+            <div>
+                <h1>Olá, eu sou Millena Rosa de Oliveira</h1>
+                <p>Desenvolvedora em Formação | Estudante de Desenvolvimento de Sistemas</p>
+                <a href="#projetos" class="btn">Ver Projetos</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <div class="sobre-content">
+            <div class="foto-perfil"><img src="/Portifólio/foto portifólio.jpeg" alt=""></div>
+            <div>
+                <p>Olá! Sou Millena, estudante de Desenvolvimento de Sistemas em início de carreira. Busco constantemente aprender e crescer na área de tecnologia, construindo uma base sólida para o futuro profissional.</p>
+                <br>
+                <p>Atualmente no 1º ano do curso de TI, estou desenvolvendo minhas habilidades em programação e descobrindo as diversas possibilidades que a tecnologia oferece. Este portfólio é um espaço para documentar minha jornada de aprendizado e evolução na área.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos">
+        <h2>Meus Projetos</h2>
+        <div class="projeto-placeholder">
+            <h3 style="color: #1e3a8a; margin-bottom: 1rem;">🚀 Em Construção</h3>
+            <p>Esta seção está preparada para receber meus projetos ao longo do curso.</p>
+            <p>Em breve, você encontrará aqui os trabalhos que desenvolvi durante minha formação!</p>
+        </div>
+        
+
+    </section>
+
+    <section id="habilidades">
+        <h2>Habilidades</h2>
+        <div class="skills-container">
+            <div class="skill">HTML5</div>
+            <div class="skill">CSS3</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">Banco de Dados</div>
+            <div class="skill">Git & GitHub</div>
+            <div class="skill">Design Responsivo</div>
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Entre em Contato</h2>
+        <div class="contato-info">
+            <p>Estou sempre aberta a novas oportunidades de aprendizado e networking!</p>
+            <div class="contato-links">
+                <a href="mailto:rosamillena910@gmail.com" class="contato-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span>Gmail</span>
+                </a>
+                <a href="https://github.com/millena-oliveira" target="_blank" class="contato-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://instagram.com/m.illenarosa" target="_blank" class="contato-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                    <span>Instagram</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Millena Rosa de Oliveira. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

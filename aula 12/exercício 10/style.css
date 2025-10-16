@@ -1,0 +1,35 @@
+
+body {
+	font-family: 'Segoe UI', Arial, sans-serif;
+	background: #f4f8fb;
+	color: #222;
+	margin: 0;
+	padding: 0 20px;
+}
+
+h1 {
+	color: #1e7e34;
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 30px;
+	font-size: 2.2em;
+}
+
+p {
+	max-width: 700px;
+	margin: 20px auto;
+	font-size: 1.15em;
+	line-height: 1.7;
+	background: #ebeaea;
+	padding: 18px 24px;
+	border-radius: 10px;
+	box-shadow: 0 2px 8px rgba(30,126,52,0.07);
+}
+
+mark {
+	background: #ffe066;
+	color: #1e7e34;
+	padding: 2px 6px;
+	border-radius: 4px;
+	font-weight: bold;
+}

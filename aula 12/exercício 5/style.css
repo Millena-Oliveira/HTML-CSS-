@@ -1,0 +1,21 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #b3b2b2;
+}
+section {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    float: left;
+}
+aside{
+      float: right;
+      width: 30%;
+      background-color: #fff;
+      padding: 10px;
+      margin-left: 20px;
+      border-radius: 8px;
+}
