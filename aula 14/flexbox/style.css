@@ -25,7 +25,7 @@ body{
 }
 .item {
     color: black;
-    background-color: rgb(148, 250, 204);
+    background-color: #e31414;
     height: 200px;
     width: 200px;
     display: flex;
@@ -35,7 +35,7 @@ body{
 
 .item2{
     color: black;
-    background-color: rgb(241, 93, 177);
+    background-color: #251fd6;
     height: 200px;
     width: 200px;
     display: flex;
@@ -45,7 +45,7 @@ body{
 
 .item3{
     color: black;
-    background-color: rgb(250, 245, 99);
+    background-color: #fff700;
     height: 200px;
     width: 200px;
     display: flex;
@@ -62,7 +62,7 @@ body{
 }
 .item4{
     color: black;
-    background-color: rgb(250, 169, 99);
+    background-color: #e31414;
     height: 200px;
     width: 200px;
     display: flex;
@@ -79,7 +79,7 @@ body{
 }
 .item5{
     color: black;
-    background-color: rgb(99, 250, 134);
+    background-color: #251fd6;
     height: 200px;
     width: 200px;
     display: flex;
@@ -96,7 +96,7 @@ body{
 }
 .item6{
     color: black;
-    background-color: rgb(99, 127, 250);
+    background-color: #fff700;
     height: 200px;
     width: 200px;
     display: flex;
@@ -145,7 +145,7 @@ body{
 }
 .item9{
     color: white;
-    background-color: #08989d;
+    background-color: #e31414;
     height: 200px;
     width: 200px;
     display: flex;
@@ -162,7 +162,7 @@ body{
 }
 .item10{
     color: white;
-    background-color: #08989d;
+    background-color: #e31414;
     height: 200px;
     width: 200px;
     display: flex;
@@ -179,7 +179,7 @@ body{
 }
 .item11{
     color: white;
-    background-color: #9d087f;
+    background-color: #fff700;
     height: 200px;
     width: 200px;
     display: flex;
@@ -196,7 +196,7 @@ body{
 }
 .item12{
     color: white;
-    background-color: #9d087f;
+    background-color: #fff700;
     height: 200px;
     width: 200px;
     display: flex;
