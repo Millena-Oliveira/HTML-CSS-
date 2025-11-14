@@ -1,0 +1,15 @@
+.container {
+  display: flex;              
+  flex-direction: row;        
+  justify-content: flex-end;  
+  align-items: center;       
+  gap: 12px;                
+  height: 80px;
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+.item {
+  padding: 8px 12px;
+  background: #7ff75a;
+  border-radius: 6px;
+}

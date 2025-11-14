@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+.item {
+  background: #822222;
+  padding: 10px 20px;
+}

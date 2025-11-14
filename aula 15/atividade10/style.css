@@ -1,0 +1,10 @@
+.footer10 {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: #222;
+  color: rgb(208, 255, 0);
+}
+.col {
+  width: 30%;
+}

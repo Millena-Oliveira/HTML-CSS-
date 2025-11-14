@@ -1,0 +1,26 @@
+.gallery13 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.photo {
+  flex: 1 1 calc(25% - 10px); /* 4 por linha em telas grandes */
+  height: 150px;
+  background: #ccc;
+  border-radius: 6px;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .photo {
+    flex: 1 1 calc(33.33% - 10px);
+  }
+}
+
+/* Celular */
+@media (max-width: 600px) {
+  .photo {
+    flex: 1 1 calc(50% - 10px);
+  }
+}
