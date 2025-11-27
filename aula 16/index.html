@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #43c54a 0%, #179321 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        nav {
+            margin-top: 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        section:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        h2 {
+            color: #78e152;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .valores {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .valor-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .valor-item h3 {
+            color: #329918;
+            margin-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #43c54a 0%, #179321 100%);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .status-ativo {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .status-concluido {
+            color: #6c757d;
+        }
+
+        .equipe {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .membro {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .membro img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid #128501;
+        }
+
+        .membro h3 {
+            color: #0f7b1e;
+            margin-bottom: 0.5rem;
+        }
+
+        .membro p {
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #495057;
+            font-weight: 500;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e9ecef;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #78e152 0%, #329918 100%);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: #2d3436;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        .quem-somos p {
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🐾 Instituto Amor Animal</h1>
+        <p>Resgatando vidas, transformando futuros</p>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#doar">Doe Agora</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <section id="home" class="quem-somos">
+        <div class="container">
+            <h2>Quem Somos</h2>
+            <p>
+                O Instituto Amor Animal é uma organização dedicada ao resgate, cuidado e adoção responsável de animais em situação de vulnerabilidade. 
+                Trabalhamos incansavelmente para dar uma segunda chance a cães e gatos abandonados, proporcionando tratamento veterinário, alimentação adequada 
+                e muito carinho até encontrarmos um lar definitivo para cada um deles.
+            </p>
+            <div class="valores">
+                <div class="valor-item">
+                    <h3>💙 Solidariedade</h3>
+                    <p>Acreditamos no poder da união para transformar vidas</p>
+                </div>
+                <div class="valor-item">
+                    <h3>🤝 Respeito</h3>
+                    <p>Tratamos cada animal com dignidade e amor</p>
+                </div>
+                <div class="valor-item">
+                    <h3>🌱 Sustentabilidade</h3>
+                    <p>Promovemos práticas responsáveis e conscientes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos">
+        <div class="container">
+            <h2>Nossos Projetos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome do Projeto</th>
+                        <th>Público Atendido</th>
+                        <th>Ano de Início</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Resgate Emergencial</td>
+                        <td>Animais em situação de risco</td>
+                        <td>2018</td>
+                        <td class="status-ativo">Ativo</td>
+                    </tr>
+                    <tr>
+                        <td>Castração Solidária</td>
+                        <td>Comunidades de baixa renda</td>
+                        <td>2019</td>
+                        <td class="status-ativo">Ativo</td>
+                    </tr>
+                    <tr>
+                        <td>Adote um Amigo</td>
+                        <td>Famílias interessadas em adoção</td>
+                        <td>2017</td>
+                        <td class="status-ativo">Ativo</td>
+                    </tr>
+                    <tr>
+                        <td>Campanha de Natal 2024</td>
+                        <td>Animais do abrigo</td>
+                        <td>2024</td>
+                        <td class="status-concluido">Concluído</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="equipe">
+        <div class="container">
+            <h2>Nossa Equipe</h2>
+            <div class="equipe">
+                <div class="membro">
+                    <img src="/mulher.jpg" alt="Maria Silva">
+                    <h3>Maria Silva</h3>
+                    <p>Diretora e Fundadora</p>
+                </div>
+                <div class="membro">
+                    <img src="/homem.avif" alt="João Santos">
+                    <h3>Dr. João Santos</h3>
+                    <p>Veterinário Responsável</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="doar">
+        <div class="container">
+            <h2>Doe Agora</h2>
+            <form>
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="valor">Valor da Doação (R$)</label>
+                    <input type="number" id="valor" name="valor" min="1" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="pagamento">Método de Pagamento</label>
+                    <select id="pagamento" name="pagamento" required>
+                        <option value="">Selecione uma opção</option>
+                        <option value="pix">Pix</option>
+                        <option value="cartao">Cartão de Crédito</option>
+                        <option value="boleto">Boleto Bancário</option>
+                    </select>
+                </div>
+                <button type="submit">Enviar Doação</button>
+            </form>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <div class="container">
+            <p><strong>📍 Endereço:</strong> Rua das Flores, 123 - Centro - São Paulo, SP</p>
+            <p><strong>📧 E-mail:</strong> contato@institutoamoranimal.org.br</p>
+            <p style="margin-top: 1.5rem;">© 2025 Instituto Amor Animal - Todos os direitos reservados</p>
+        </div>
+    </footer>
+</body>
+</html>
